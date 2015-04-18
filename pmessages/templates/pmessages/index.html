@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<head>
+  <title>Pusher Test</title>
+  <script src="//js.pusher.com/2.2/pusher.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    // Enable pusher logging - don't include this in production
+    Pusher.log = function(message) {
+      if (window.console && window.console.log) {
+        window.console.log(message);
+      }
+    };
+
+    var pusher = new Pusher('d1098af771ad1bd324de');
+    var channel = pusher.subscribe('private-test_channel2');
+    channel.bind('my_event', function(data) {
+      alert(data.message);
+    });
+  </script>
+</head>
+
+
+messages:<br/>
+{% for p in pmessages %}
+- {{p.message}}<br/><br/>
+{% endfor %}
+
+
+<form action="/pusher/auth/" method="POST"  enctype="multipart/form-data">
+    <input type="hidden" name="channel_name" value="chan1" />
+    <input type="hidden" name="socket_id" value="123" />
+    <input type="submit" class="btn btn-primary" value="Create"/>
+</form>
