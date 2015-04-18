@@ -30,9 +30,9 @@ TEMPLATE_DIRS = (
 
 ALLOWED_HOSTS = []
 
-PUSHER_APP_ID="114533"
-PUSHER_KEY='d1098af771ad1bd324de'
-PUSHER_SECRET='cb967b9a7906fd14e7b2'
+PUSHER_APP_ID=""
+PUSHER_KEY=''
+PUSHER_SECRET=''
 # Application definition
 from django_pusher.push import pusher
 from pmessages.helpers import authuser
